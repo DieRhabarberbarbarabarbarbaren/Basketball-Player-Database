@@ -1,0 +1,51 @@
+h1 {
+    font-size: 22px;
+    text-align: center;
+    font-family: sans-serif;
+
+}
+h1::first-letter {
+    color: rgb(136,0,21)
+}
+
+li {
+    font-size: 18px;
+    font-family: sans-serif;
+
+}
+li:hover {
+    background-color: rgb(63, 72, 204);
+}
+ul {
+    font-family: sans-serif;
+    list-style-type: none;
+    border-width: medium;
+    border-style: solid;
+    border-color: rgb(63,72,204);
+    background-color: rgb(0,162,232);
+
+}
+
+#rightBorder {
+    background-color: rgb(0,162,232);
+    float: right;
+    width: 20%;
+}
+
+#leftBorder {
+    background-color: rgb(0,162,232);
+    float: left;
+    width: 20%;
+}
+#center {
+    background-color: rgb(153,217,234);
+    margin: 0 20%;
+    border: none;
+    width: 60%;
+}
+#list {
+    margin: 5% 40%;
+}
+#img {
+    text-align: center;
+}
