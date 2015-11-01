@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spieler anlegen</title>
+    <link rel="stylesheet" href="../format.css" type="text/css">
+</head>
+<body>
+<div id="leftBorder">
+</div>
+
+<div id="rightBorder">
+</div>
+
+<div id="center">
+    <h1 style="font-size: 24px">Spieler anlegen</h1>
+
+    <form method="get" action="http://martinakraus.net/createPlayer.php">
+        <p>Name <input type="text" name="Nachname"/></p>
+
+        <p>Vorname <input type="text" name="Vorname"/></p>
+
+        <p>Verein <input type="text" name="Verein"/></p>
+
+        <p>Coach <input type="text" name="Headcoach"/></p>
+
+        <p>Assistentencoach <input type="text" name="Assistant Coach"/></p>
+
+        <p>Trikotnummer <input type="number" name="Rückennummer"/></p>
+
+        <p>Position
+            <select name="Rückennummer">
+                <option>Center</option>
+                <option>Guard</option>
+                <option>Power Forward</option>
+                <option selected>Wing</option>
+                <option>Small Forward</option>
+            </select></p>
+        <p>Jahrgang <input type="number" name="Geburtsjahr"/></p>
+
+        <p>Aktiv <input type="checkbox" name="Aktiv"/>Ja <input type="checkbox" name="Aktiv" checked/>Nein</p>
+
+        <p>Als Favorit markieren <input type="checkbox" name="Favorit markieren"/></p>
+
+        <p><input type="submit" name="Anlegen" value="Anlegen"/></p>
+    </form>
+</div>
+
+
+
+</body>
+</html>
