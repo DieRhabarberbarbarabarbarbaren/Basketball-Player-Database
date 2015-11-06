@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    margin: 0%;
 }
 
 #leftBorder {
@@ -22,7 +23,7 @@ html, body {
 }
 
 #heading {
-    padding-top: 50%;
+    padding-top: 2%;
 }
 
 h1 {
