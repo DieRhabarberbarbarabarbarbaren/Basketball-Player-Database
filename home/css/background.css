@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    margin: 0%;
+}
+
+#leftBorder {
+    background-color: rgb(0, 162, 232);
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+#rightBorder {
+    background-color: rgb(0, 162, 232);
+    float: right;
+    width: 20%;
+    height: 100%;
+}
+
+#center {
+    background-color: rgb(153, 217, 234);
+    height: 100%;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    margin:0;
+}
+
+.version1{
+    font-size: 22px;
+    font-color: rgb(136,0,21);
+}
+
+.version2{
+    font-size: 24px;
+    font-color: rgb(75,47,37);
+}

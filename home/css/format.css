@@ -1,36 +1,5 @@
-html, body {
-    height: 100%;
-    margin: 0%;
-}
-
-#leftBorder {
-    background-color: rgb(0, 162, 232);
-    float: left;
-    width: 20%;
-    height: 100%;
-}
-
-#rightBorder {
-    background-color: rgb(0, 162, 232);
-    float: right;
-    width: 20%;
-    height: 100%;
-}
-
-#center {
-    background-color: rgb(153, 217, 234);
-    height: 100%;
-}
-
 #heading {
     padding-top: 2%;
-}
-
-h1 {
-    font-size: 22px;
-    font-family: sans-serif;
-    text-align: center;
-    margin:0;
 }
 
 #img {
@@ -64,3 +33,28 @@ a {
     text-decoration: none;
 }
 
+.FirstLetter{
+    color: rgb(136,0,21);
+}
+
+#form{
+    padding-top: 50px;
+}
+
+.inputfieldLine{
+    margin: 10px;
+    width: 500px;
+    border-color: black;
+    border-right: 2px;
+}
+
+.inputfieldName{
+    font-size: 16px;
+    color: black;
+    width: 400px;
+    height: 100%;
+}
+
+.inputfieldCell{
+    float: right;
+}

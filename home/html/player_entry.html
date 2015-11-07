@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Spieler anlegen</title>
-    <link rel="stylesheet" href="../format.css" type="text/css">
+    <link rel="stylesheet" href="../css/background.css" type="text/css">
+    <link rel="stylesheet" href="../css/format.css" type="text/css">
 </head>
 <body>
 <div id="leftBorder">
@@ -13,39 +14,71 @@
 </div>
 
 <div id="center">
-    <h1 style="font-size: 24px">Spieler anlegen</h1>
+    <div id="heading">
+        <h1 class="version2">Spieler anlegen</h1>
+    </div>
 
-    <form method="get" action="http://martinakraus.net/createPlayer.php">
-        <p>Name <input type="text" name="Nachname"/></p>
+    <div id="form">
+        <form method="get" action="http://martinakraus.net/createPlayer.php">
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Name</div>
+                <div class="inputfieldCell"><input type="text" name="Nachname"/></div>
+            </div>
 
-        <p>Vorname <input type="text" name="Vorname"/></p>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Vorname</div>
+                <div class="inputfieldCell"><input type="text" name="Vorname"/></div>
+            </div>
 
-        <p>Verein <input type="text" name="Verein"/></p>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Verein</div>
+                <div class="inputfieldCell"><input type="text" name="Verein"/></div>
+            </div>
 
-        <p>Coach <input type="text" name="Headcoach"/></p>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Coach</div>
+                <div class="inputfieldCell"><input type="text" name="Headcoach"/></div>
+            </div>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Assistentencoach</div>
+                <div class="inputfieldCell"><input type="text" name="Assistant Coach"/></div>
+            </div>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Trikotnummer</div>
+                <div class="inputfieldCell"><input type="number" name="Rückennummer"/></div>
+            </div>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Position</div>
+                <div class="inputfieldCell">
+                <select name="Rückennummer">
+                    <option>Center</option>
+                    <option>Guard</option>
+                    <option>Power Forward</option>
+                    <option selected>Wing</option>
+                    <option>Small Forward</option>
+                </select></div>
+            </div>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Jahrgang</div>
+                <div class="inputfieldCell"><input type="number" name="Geburtsjahr"/></div>
+            </div>
 
-        <p>Assistentencoach <input type="text" name="Assistant Coach"/></p>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Aktiv</div>
+                <div class="inputfieldCell">
+                    <input type="checkbox" name="Aktiv"/>Ja
+                    <input type="checkbox" name="Aktiv" checked/>Nein</div>
+            </div>
 
-        <p>Trikotnummer <input type="number" name="Rückennummer"/></p>
+            <div class="inputfieldLine">
+                <div class="inputfieldName">Als Favorit markieren</div>
+                <div class="inputfieldCell"><input type="checkbox" name="Favorit markieren"/></div>
+            </div>
 
-        <p>Position
-            <select name="Rückennummer">
-                <option>Center</option>
-                <option>Guard</option>
-                <option>Power Forward</option>
-                <option selected>Wing</option>
-                <option>Small Forward</option>
-            </select></p>
-        <p>Jahrgang <input type="number" name="Geburtsjahr"/></p>
-
-        <p>Aktiv <input type="checkbox" name="Aktiv"/>Ja <input type="checkbox" name="Aktiv" checked/>Nein</p>
-
-        <p>Als Favorit markieren <input type="checkbox" name="Favorit markieren"/></p>
-
-        <p><input type="submit" name="Anlegen" value="Anlegen"/></p>
-    </form>
+            <div class="inputfieldLine"><input type="submit" name="Anlegen" value="Anlegen"/></div>
+        </form>
+    </div>
 </div>
-
 
 
 </body>
