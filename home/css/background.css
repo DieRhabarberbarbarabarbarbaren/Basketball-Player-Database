@@ -1,5 +1,5 @@
 html, body {
-    height: 200%;
+    height: 100%;
     margin: 0%;
 }
 
@@ -20,8 +20,10 @@ html, body {
 #center {
     background-color: rgb(153, 217, 234);
     height: 100%;
-    margin-left: 20%;
+    position: relative;
     width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 h1 {
@@ -32,10 +34,9 @@ h1 {
 
 .version1{
     font-size: 22px;
-    font-color: rgb(136,0,21);
 }
 
 .version2{
     font-size: 24px;
-    font-color: rgb(75,47,37);
+    color: rgb(75,47,37);
 }
