@@ -5,6 +5,7 @@
     <title>Spieler anlegen</title>
     <link rel="stylesheet" href="../css/background.css" type="text/css">
     <link rel="stylesheet" href="../css/format.css" type="text/css">
+    <script type="text/javascript" src="../js/inputValidation.js"></script>
 </head>
 <body>
 <div id="leftBorder">
@@ -76,7 +77,7 @@
                     <label>Nein</label>
                 </div>
                 <div class="inputfieldLine">
-                    <input type="submit" name="Anlegen" value="Anlegen"/>
+                    <input type="submit" onsubmit=" return validateInput()" name="Anlegen" value="Anlegen"/>
                 </div>
             </div>
         </form>
