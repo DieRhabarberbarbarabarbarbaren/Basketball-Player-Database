@@ -21,13 +21,13 @@
 
     <div id="form">
         <form action="http://martinakraus.net/createPlayer.php" method="get">
-            <div id="rightForm" align="right">
+            <div id="rightForm">
                 <div id="favoritLine">
-                    <p><label id="favoritLabel" class="inputfieldName">Als Favorit markieren</label></p>
-                    <input id="favoritCheckbox" class="inputfieldCell" type="checkbox" name="favorit"/>
+                    <label id="favoritLabel" class="inputfieldName">Als Favorit markieren</label>
+
+                    <div><input id="favoritCheckbox" class="inputfieldCell" type="checkbox" name="favorit"/></div>
                 </div>
             </div>
-
             <div id="leftForm" align="left">
                 <div class="inputfieldLine">
                     <label class="inputfieldName">Vorname</label>
@@ -70,15 +70,23 @@
                 </div>
 
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Aktiv</label>
-                    <input type="checkbox" class="inputfieldCell" name="Aktiv"/>
-                    <label>Ja</label>
-                    <input type="checkbox" class="inputfieldCell" name="Aktiv" checked/>
-                    <label>Nein</label>
+                    <div class="AktivBlock"><label class="inputfieldName">Aktiv</label></div>
+
+                    <div class="AktivBlock">
+                        <div id="AktivCellJa"><input type="checkbox" name="Aktiv"/>
+                            <label class="inputfieldName">Ja</label>
+                        </div>
+                        <div id="AktivCellNein">
+                            <input type="checkbox" name="Aktiv" checked/>
+                            <label class="inputfieldName">Nein</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="inputfieldLine">
-                    <input type="submit" onsubmit=" return validateInput()" name="Anlegen" value="Anlegen"/>
+                    <input type="submit" onsubmit=" return validateInput()" id="anlegenButton" name="Anlegen"
+                           value="Anlegen"/>
                 </div>
+
             </div>
         </form>
     </div>

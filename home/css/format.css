@@ -44,6 +44,7 @@ a {
 
 .inputfieldLine {
     margin: 10px;
+    margin-left:20px;
     width: auto;
     border-color: black;
     border-right: 2px;
@@ -59,12 +60,28 @@ a {
 
 .inputfieldCell {
     float: right;
-    margin-left: 2em;
     border-color: black;
-    border-width:thin;
+    border-width: thin;
 }
 
-#leftform, #rightform{
+.AktivBlock {
+    display: inline;
+    float: left;
+    width: 50%;
+}
+
+#AktivCellJa {
+    display: inline;
+    float: left;
+}
+
+#AktivCellNein {
+    display: inline;
+    float: right;
+    padding-right: 20px;
+}
+
+#leftform, #rightform {
     height: auto;
 }
 
@@ -78,15 +95,15 @@ a {
     width: 50%;
 }
 
-#favoritLabel{
+#favoritCheckbox {
     float:left;
 }
 
-#favoritCheckbox{
-    float:left;
+#favoritLine {
+    margin: 20px;
+    margin-left: 20px;
 }
 
-#favoritLine{
-    margin:10px;
-    margin-left:20px;
+#anlegenButton{
+    margin-top:10px;
 }
