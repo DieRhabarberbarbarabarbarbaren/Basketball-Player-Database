@@ -20,7 +20,7 @@
     </div>
 
     <div id="form">
-        <form action="http://martinakraus.net/createPlayer.php" onsubmit="return validateInput();" method="get" name = "SpielerAnlegen">
+        <form action="http://martinakraus.net/createPlayer.php" method="get" name = "SpielerAnlegen">
             <div id="rightForm">
                 <div id="favoritLine">
                     <label id="favoritLabel" class="inputfieldName">Als Favorit markieren</label>
@@ -70,7 +70,6 @@
                 </div>
 
                 <div class="inputfieldLine">
-                    <div class="AktivBlock"><label class="inputfieldName">Aktiv</label></div>
 
                     <div class="AktivBlock">
                         <div id="AktivCellJa"><input type="checkbox" name="Aktiv"/>
@@ -81,9 +80,11 @@
                             <label class="inputfieldName">Nein</label>
                         </div>
                     </div>
+                    <div ><label class="inputfieldName">Aktiv</label></div>
+
                 </div>
                 <div class="inputfieldLine">
-                    <input type="submit" id="anlegenButton" name="Anlegen"
+                    <input type="submit" onclick="return validateInput()" id="anlegenButton" name="Anlegen"
                            value="Anlegen"/>
                 </div>
 

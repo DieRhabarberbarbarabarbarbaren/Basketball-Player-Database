@@ -62,12 +62,12 @@ a {
     float: right;
     border-color: black;
     border-width: thin;
+    border-style: solid;
 }
 
 .AktivBlock {
-    display: inline;
-    float: left;
-    width: 50%;
+    display: table;
+    float:right;
 }
 
 #AktivCellJa {
@@ -79,6 +79,7 @@ a {
     display: inline;
     float: right;
     padding-right: 20px;
+    margin-left:30px;
 }
 
 #leftform, #rightform {
