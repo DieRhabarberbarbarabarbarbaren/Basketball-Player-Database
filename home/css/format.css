@@ -115,17 +115,28 @@ a {
 }
 
 table{
-    border: 3px solid black;
+    border: 2px solid black;
+    width: 90%;
+
+    margin-left:5%;
+    display: block;
+    border-collapse: collapse;
 }
 
 .tableAttribute{
+    width:10%;
     font-size: 14px;
-    border: 3px solid black;
+    border: 1px solid black;
     border-collapse: collapse;
 }
 
-#tableTabAlleSpieler{
+#tableTabAlleSpieler, #tableTabMeineFavoriten{
+    width:100%;
     font-size: 20px;
-    border:3px solid black;
+    border:2px solid black;
     border-collapse: collapse;
+    position:relative;
+}
+#tableheader, #tablebody{
+    width:100%;
 }

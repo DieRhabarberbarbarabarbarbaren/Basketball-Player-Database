@@ -28,8 +28,19 @@ function loadTableHeader() {
 
 function getPlayerList() {
     var request = new XMLHttpRequest();
-    var playerList = request.getAllResponseHeaders();
-    return playerList;
+    var url = "martinakraus.net/data.json";
+    var pList;
+
+    request.onreadystatechange = function requestReadyStateHandler() {
+        if (request.readyState == 4 && request.status == 200) {
+            pList = JSON.parse(request.responseText);
+
+            return pList;
+        }
+    };
+    request.open("GET", url, true);
+    request.send();
+    return pList;
 }
 
 function loadTable() {
@@ -45,34 +56,53 @@ function loadTable() {
 
     var playerList = getPlayerList();
 
-    for (var zeile = 0; zeile < 10; zeile++) {
-        row = document.createElement("tr");
-        for (var spalte = 0; spalte < 8; spalte++) {
-            if (zeile == 0) {
-                cell = document.createElement("th");
-                cell.setAttribute("colspan", "4");
-                if (spalte == 0) {
-                    text = document.createTextNode("Alle Spieler");
-                    cell.setAttribute("id", "tableTabAlleSpieler");
-                }
-                if (spalte == 4) {
-                    text = document.createTextNode("Meine Favoriten");
-                    cell.setAttribute("id", "tableTabMeineFavoriten");
-                }
-            }
-            if (zeile == 1) {
-                text = document.createTextNode(attributList[spalte]);
-                cell.setAttribute("class", "tableAttribute");
-            } else {
-                cell = document.createElement("td");
-                cell.setAttribute("class","tableData");
-            }
-            cell.appendChild(text);
-            row.appendChild(cell);
-        }
-        tablebody.appendChild(row);
+    //Tab Alle Spieler
+    row = document.createElement("tr");
+    cell = document.createElement("th");
+    text = document.createTextNode("Alle Spieler");
+    cell.setAttribute("id", "tableTabAlleSpieler");
+    cell.setAttribute("colspan", "4");
+    cell.appendChild(text);
+    row.appendChild(cell);
+
+    //Tab "Meine Favoriten"
+    cell = document.createElement("th");
+    text = document.createTextNode("Meine Favoriten");
+    cell.setAttribute("id", "tableTabMeineFavoriten");
+    //cell.setAttribute("colspan", "4");
+    cell.appendChild(text);
+    row.appendChild(cell);
+
+    tableheader.appendChild(row);
+
+    //Attributliste laden
+    row = document.createElement("tr");
+
+    for (var attributeCounter = 0; attributeCounter < 8; attributeCounter++) {
+        cell = document.createElement("th");
+        text = document.createTextNode(attributList[attributeCounter]);
+        cell.setAttribute("class", "tableAttribute");
+        cell.appendChild(text);
+        row.appendChild(cell);
     }
 
+    tableheader.appendChild(row);
+
+    for (var zeile = 0; zeile < 8; zeile++) {
+        row = document.createElement("tr");
+        for (var spalte = 0; spalte < 8; spalte++) {
+
+            cell = document.createElement("td");
+            cell.setAttribute("class", "tableData");
+        }
+        cell.appendChild(text);
+        row.appendChild(cell);
+    }
+
+    tablebody.appendChild(row);
+
+    tableheader.setAttribute("id", "tableheader");
+    tablebody.setAttribute("id", "tablebody");
     table.appendChild(tableheader);
     table.appendChild(tablebody);
     table.setAttribute("ID", "favoriteTable");
