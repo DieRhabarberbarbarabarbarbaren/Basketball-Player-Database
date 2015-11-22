@@ -108,3 +108,14 @@ a {
 #anlegenButton{
     margin-top:10px;
 }
+
+#favoritTable{
+    border-width: thick;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.tableAttribute{
+    font-size: 14px;
+}

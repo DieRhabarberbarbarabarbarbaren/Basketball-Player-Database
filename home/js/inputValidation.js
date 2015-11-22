@@ -26,7 +26,7 @@ function validateInput() {
         resetBorder(trikotnummer);
     }
     //validates geburtsjahr
-    if (geburtsjahr.value < 0 || geburtsjahr.value > (new Date().getFullYear())) {
+    if (geburtsjahr.value == "" || geburtsjahr.value < 0 || geburtsjahr.value > (new Date().getFullYear())) {
 
         invalidInput(geburtsjahr);
     } else {
