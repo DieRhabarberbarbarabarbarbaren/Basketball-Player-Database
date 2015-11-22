@@ -110,12 +110,22 @@ a {
 }
 
 #favoritTable{
-    border-width: thick;
-    border-style: solid;
-    border-color: black;
+    border: 3px solid black;
 
+}
+
+table{
+    border: 3px solid black;
 }
 
 .tableAttribute{
     font-size: 14px;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+#tableTabAlleSpieler{
+    font-size: 20px;
+    border:3px solid black;
+    border-collapse: collapse;
 }

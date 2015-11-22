@@ -26,23 +26,46 @@ function loadTableHeader() {
 
 }
 
+function getPlayerList() {
+    var request = new XMLHttpRequest();
+    var playerList = request.getAllResponseHeaders();
+    return playerList;
+}
+
 function loadTable() {
 
     var attributList = ["Spieler", "Verein", "Headcoach", "Assistantcoach", "Position", "Aktiv", "Rückennummer", "Geburtsjahr"];
 
     var table = document.createElement("table");
+    var tableheader = document.createElement("thead");
     var tablebody = document.createElement("tbody");
     var row;
     var cell;
     var text;
 
+    var playerList = getPlayerList();
+
     for (var zeile = 0; zeile < 10; zeile++) {
         row = document.createElement("tr");
         for (var spalte = 0; spalte < 8; spalte++) {
-            cell = document.createElement("td");
             if (zeile == 0) {
+                cell = document.createElement("th");
+                cell.setAttribute("colspan", "4");
+                if (spalte == 0) {
+                    text = document.createTextNode("Alle Spieler");
+                    cell.setAttribute("id", "tableTabAlleSpieler");
+                }
+                if (spalte == 4) {
+                    text = document.createTextNode("Meine Favoriten");
+                    cell.setAttribute("id", "tableTabMeineFavoriten");
+                }
+            }
+            if (zeile == 1) {
                 text = document.createTextNode(attributList[spalte]);
                 cell.setAttribute("class", "tableAttribute");
+            } else {
+                cell = document.createElement("td");
+                cell.setAttribute("class","tableData");
             }
             cell.appendChild(text);
             row.appendChild(cell);
@@ -50,30 +73,30 @@ function loadTable() {
         tablebody.appendChild(row);
     }
 
+    table.appendChild(tableheader);
     table.appendChild(tablebody);
     table.setAttribute("ID", "favoriteTable");
-    table.setAttribute("style", "border:thick; border-color: black;");
     return table;
 }
 
 /*function loadTable(row, col, id) {
 
-    /* var myTable = document.createElement("table");
-     var mytablebody = document.createElement("tbody");
+ /* var myTable = document.createElement("table");
+ var mytablebody = document.createElement("tbody");
 
-     for (var j = 0; j < row; j++) {
-     mycurrent_row = document.createElement("tr");
-     for (var i = 0; i < col; i++) {
-     mycurrent_cell = document.createElement("td");
-     currenttext = document.createTextNode("row" + j + ", column " + i);
-     mycurrent_cell.appendChild(currenttext);
-     mycurrent_row.appendChild(mycurrent_cell);
-     }
+ for (var j = 0; j < row; j++) {
+ mycurrent_row = document.createElement("tr");
+ for (var i = 0; i < col; i++) {
+ mycurrent_cell = document.createElement("td");
+ currenttext = document.createTextNode("row" + j + ", column " + i);
+ mycurrent_cell.appendChild(currenttext);
+ mycurrent_row.appendChild(mycurrent_cell);
+ }
 
-     mytablebody.appendChild(mycurrent_row);
-     }
+ mytablebody.appendChild(mycurrent_row);
+ }
 
-     myTable.appendChild(mytablebody);
-     myTable.setAttribute("ID", id);
-     return myTable;
-}*/
+ myTable.appendChild(mytablebody);
+ myTable.setAttribute("ID", id);
+ return myTable;
+ }*/
