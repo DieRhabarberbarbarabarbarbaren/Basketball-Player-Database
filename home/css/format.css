@@ -44,7 +44,7 @@ a {
 
 .inputfieldLine {
     margin: 10px;
-    margin-left:20px;
+    margin-left: 20px;
     width: auto;
     border-color: black;
     border-right: 2px;
@@ -67,7 +67,7 @@ a {
 
 .AktivBlock {
     display: table;
-    float:right;
+    float: right;
 }
 
 #AktivCellJa {
@@ -79,7 +79,7 @@ a {
     display: inline;
     float: right;
     padding-right: 20px;
-    margin-left:30px;
+    margin-left: 30px;
 }
 
 #leftform, #rightform {
@@ -97,48 +97,65 @@ a {
 }
 
 #favoritCheckbox {
-    float:left;
+    float: left;
 }
 
 #favoritLine {
     margin: 20px;
 }
 
-#anlegenButton{
-    margin-top:10px;
+#anlegenButton {
+    margin-top: 10px;
 }
 
-table{
+table {
     border: 2px solid black;
     width: 90%;
 
-    margin-left:5%;
+    margin-left: 5%;
     border-collapse: collapse;
 }
 
-.tableAttribute{
-    width:10%;
+.tableAttribute {
+    width: 10%;
     font-size: 14px;
     border: 2px solid black;
     border-collapse: collapse;
 }
 
-#tableTabAlleSpieler, #tableTabMeineFavoriten{
-    width:100%;
+.tableData{
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-size: 12px;
+    padding:2px;
+}
+
+#tableTabAlleSpieler, #tableTabMeineFavoriten {
+    width: 100%;
     font-size: 20px;
-    border:2px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
 }
-#tableheader, #tablebody{
 
+#tableheader, #tablebody {
+    border-collapse: collapse;
+    border: 2px solid black;
 }
 
-.zurueckButton{
-    margin:20px;
-    padding-top:10px;
+.zurueckButton {
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
-.selected{
-    background-color: rgb(0,38,255);
+.selected {
+    background-color: rgb(0, 38, 255);
     color: #FFFFFF;
+}
+
+.favouriteRow{
+
+}
+
+.notFavouriteRow{
+
 }

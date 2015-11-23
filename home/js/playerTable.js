@@ -17,18 +17,22 @@ function loadHeading() {
     return heading;
 }
 
-function getDataFromRequest() {
+function getDataFromRequest(favorites) {
     var request = new XMLHttpRequest();
     var url = "../data.json";
     var pList;
     request.onreadystatechange = function requestReadyStateHandler() {
         if (request.readyState == 4 && request.status == 200) {
             pList = JSON.parse(request.responseText);
-            document.getElementsByTagName("table")[0].appendChild(loadData(pList));
+            if (!favorites) {
+                document.getElementsByTagName("table")[0].appendChild(loadData(pList));
+            } else {
+                document.getElementsByTagName("table")[0].appendChild(loadData(pList, favorites));
+            }
         }
-    };
-    request.open("GET", url, true);
-    request.send();
+        request.open("GET", url, true);
+        request.send();
+    }
 }
 
 function loadTable() {
@@ -50,6 +54,7 @@ function loadTable() {
     cell.setAttribute("id", "tableTabAlleSpieler");
     cell.setAttribute("colspan", "4");
     cell.setAttribute("class", "selected");
+    cell.setAttribute("onclick", "select(id)");
     cell.appendChild(text);
     row.appendChild(cell);
 
@@ -58,6 +63,7 @@ function loadTable() {
     text = document.createTextNode("Meine Favoriten");
     cell.setAttribute("id", "tableTabMeineFavoriten");
     cell.setAttribute("colspan", "4");
+    cell.setAttribute("onclick", "select(id)");
     cell.appendChild(text);
     row.appendChild(cell);
 
@@ -79,14 +85,14 @@ function loadTable() {
     tableheader.setAttribute("id", "tableheader");
     tablebody.setAttribute("id", "tablebody");
 
-    getDataFromRequest();
+    getDataFromRequest(false);
 
     table.appendChild(tableheader);
     table.setAttribute("ID", "favoriteTable");
     return table;
 }
 
-function loadData(playerList) {
+function loadData(playerList, favorites) {
 
     var body = document.createElement("tbody");
 
@@ -115,9 +121,9 @@ function loadData(playerList) {
                     text = document.createTextNode(playerList[zeile]["position"]);
                     break;
                 case 5:
-                    if(playerList[zeile]["isActive"] == true) {
+                    if (playerList[zeile]["isActive"] == true) {
                         text = document.createTextNode("ja");
-                    }else{
+                    } else {
                         text = document.createTextNode("nein");
                     }
                     break;
@@ -128,13 +134,46 @@ function loadData(playerList) {
                     text = document.createTextNode(playerList[zeile]["year"]);
                     break;
             }
-            cell.appendChild(text);
-            row.appendChild(cell);
+            //Showing only Meine Favoriten cells
+            if (favorites) {
+                if (playerList[zeile]["isFavourite"]) {
+                    cell.appendChild(text);
+                    row.classList.add("favouriteRow");
+                    row.classList.remove("notFavouriteRow");
+                    row.appendChild(cell);
+                } else {
+                    row.classList.add("notFavouriteRow");
+                    row.classList.add("favouriteRow");
+                }
+                //Showing all cells
+            } else {
+                cell.appendChild(text);
+                row.appendChild(cell);
+            }
         }
+
         body.appendChild(row);
 
     }
 
+    //document.getElementsByTagName("tbody")[0].removeChild(document.body.children.
+
     return body;
 
+}
+
+function select(id) {
+
+    var tab = document.getElementById(id);
+
+    tab.classList.add("selected");
+    if (id == "tableTabAlleSpieler") {
+        document.getElementById("tableTabMeineFavoriten").classList.remove("selected");
+        getDataFromRequest(false);
+    } else {
+        document.getElementById("tableTabAlleSpieler").classList.remove("selected");
+        getDataFromRequest(true);
+    }
+
+    //document.getElementsByTagName("table")[0].
 }
