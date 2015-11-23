@@ -1,11 +1,7 @@
-/**
- * Created by Miguel on 21.11.2015.
- */
 function loadSite() {
 
     var heading = loadHeading();
     var table = loadTable();
-    //var tableHeader = loadTableHeader();
     document.getElementById("center").appendChild(heading);
     document.getElementById("center").appendChild(table);
 }
@@ -21,31 +17,23 @@ function loadHeading() {
     return heading;
 }
 
-function loadTableHeader() {
-    var header = document.createElement("th");
-
-}
-
-function getPlayerList() {
+function getDataFromRequest() {
     var request = new XMLHttpRequest();
-    var url = "martinakraus.net/data.json";
+    var url = "../data.json";
     var pList;
-
     request.onreadystatechange = function requestReadyStateHandler() {
         if (request.readyState == 4 && request.status == 200) {
             pList = JSON.parse(request.responseText);
-
-            return pList;
+            document.getElementsByTagName("table")[0].appendChild(loadData(pList));
         }
     };
     request.open("GET", url, true);
     request.send();
-    return pList;
 }
 
 function loadTable() {
 
-    var attributList = ["Spieler", "Verein", "Headcoach", "Assistantcoach", "Position", "Aktiv", "Rückennummer", "Geburtsjahr"];
+    var attributList = ["Spieler", "Verein", "Headcoach", "Assistantcoach", "Position", "Aktiv", "R\xFCckennummer", "Geburtsjahr"];
 
     var table = document.createElement("table");
     var tableheader = document.createElement("thead");
@@ -54,7 +42,6 @@ function loadTable() {
     var cell;
     var text;
 
-    var playerList = getPlayerList();
 
     //Tab Alle Spieler
     row = document.createElement("tr");
@@ -62,6 +49,7 @@ function loadTable() {
     text = document.createTextNode("Alle Spieler");
     cell.setAttribute("id", "tableTabAlleSpieler");
     cell.setAttribute("colspan", "4");
+    cell.setAttribute("class", "selected");
     cell.appendChild(text);
     row.appendChild(cell);
 
@@ -69,7 +57,7 @@ function loadTable() {
     cell = document.createElement("th");
     text = document.createTextNode("Meine Favoriten");
     cell.setAttribute("id", "tableTabMeineFavoriten");
-    //cell.setAttribute("colspan", "4");
+    cell.setAttribute("colspan", "4");
     cell.appendChild(text);
     row.appendChild(cell);
 
@@ -88,45 +76,65 @@ function loadTable() {
 
     tableheader.appendChild(row);
 
-    for (var zeile = 0; zeile < 8; zeile++) {
-        row = document.createElement("tr");
-        for (var spalte = 0; spalte < 8; spalte++) {
-
-            cell = document.createElement("td");
-            cell.setAttribute("class", "tableData");
-        }
-        cell.appendChild(text);
-        row.appendChild(cell);
-    }
-
-    tablebody.appendChild(row);
-
     tableheader.setAttribute("id", "tableheader");
     tablebody.setAttribute("id", "tablebody");
+
+    getDataFromRequest();
+
     table.appendChild(tableheader);
-    table.appendChild(tablebody);
     table.setAttribute("ID", "favoriteTable");
     return table;
 }
 
-/*function loadTable(row, col, id) {
+function loadData(playerList) {
 
- /* var myTable = document.createElement("table");
- var mytablebody = document.createElement("tbody");
+    var body = document.createElement("tbody");
 
- for (var j = 0; j < row; j++) {
- mycurrent_row = document.createElement("tr");
- for (var i = 0; i < col; i++) {
- mycurrent_cell = document.createElement("td");
- currenttext = document.createTextNode("row" + j + ", column " + i);
- mycurrent_cell.appendChild(currenttext);
- mycurrent_row.appendChild(mycurrent_cell);
- }
+    for (var zeile = 0; zeile < playerList.length; zeile++) {
+        var row = document.createElement("tr");
+        for (var spalte = 0; spalte < 8; spalte++) {
 
- mytablebody.appendChild(mycurrent_row);
- }
+            var cell = document.createElement("td");
+            cell.setAttribute("class", "tableData");
+            var text;
 
- myTable.appendChild(mytablebody);
- myTable.setAttribute("ID", id);
- return myTable;
- }*/
+            switch (spalte) {
+                case 0:
+                    text = document.createTextNode(playerList[zeile]["firstname"] + " " + playerList[zeile]["surname"]);
+                    break;
+                case 1:
+                    text = document.createTextNode(playerList[zeile]["team"]);
+                    break;
+                case 2:
+                    text = document.createTextNode(playerList[zeile]["headcoach"]);
+                    break;
+                case 3:
+                    text = document.createTextNode(playerList[zeile]["asisstantcoach"]);
+                    break;
+                case 4:
+                    text = document.createTextNode(playerList[zeile]["position"]);
+                    break;
+                case 5:
+                    if(playerList[zeile]["isActive"] == true) {
+                        text = document.createTextNode("ja");
+                    }else{
+                        text = document.createTextNode("nein");
+                    }
+                    break;
+                case 6:
+                    text = document.createTextNode(playerList[zeile]["number"]);
+                    break;
+                case 7:
+                    text = document.createTextNode(playerList[zeile]["year"]);
+                    break;
+            }
+            cell.appendChild(text);
+            row.appendChild(cell);
+        }
+        body.appendChild(row);
+
+    }
+
+    return body;
+
+}

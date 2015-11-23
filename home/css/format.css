@@ -102,16 +102,10 @@ a {
 
 #favoritLine {
     margin: 20px;
-    margin-left: 20px;
 }
 
 #anlegenButton{
     margin-top:10px;
-}
-
-#favoritTable{
-    border: 3px solid black;
-
 }
 
 table{
@@ -119,14 +113,13 @@ table{
     width: 90%;
 
     margin-left:5%;
-    display: block;
     border-collapse: collapse;
 }
 
 .tableAttribute{
     width:10%;
     font-size: 14px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
 }
 
@@ -135,8 +128,17 @@ table{
     font-size: 20px;
     border:2px solid black;
     border-collapse: collapse;
-    position:relative;
 }
 #tableheader, #tablebody{
-    width:100%;
+
+}
+
+.zurueckButton{
+    margin:20px;
+    padding-top:10px;
+}
+
+.selected{
+    background-color: rgb(0,38,255);
+    color: #FFFFFF;
 }

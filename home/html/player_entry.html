@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Spieler anlegen</title>
@@ -10,7 +10,7 @@
 <body>
 
 <div id="leftBorder">
-    <a href="home.html">Zurück</a>
+    <a class="zurueckButton" href="home.html">Zurück</a>
 </div>
 
 <div id="rightBorder">
@@ -25,39 +25,39 @@
         <form action="http://martinakraus.net/createPlayer.php" method="get" name="SpielerAnlegen">
             <div id="rightForm">
                 <div id="favoritLine">
-                    <label id="favoritLabel" class="inputfieldName">Als Favorit markieren</label>
+                    <label for="favoritCheckbox" id="favoritLabel" class="inputfieldName">Als Favorit markieren</label>
 
                     <div><input id="favoritCheckbox" class="inputfieldCell" type="checkbox" name="favorit"/></div>
                 </div>
             </div>
             <div id="leftForm" align="left">
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Vorname</label>
+                    <label for="vorname" class="inputfieldName">Vorname</label>
                     <input class="inputfieldCell" type="text" id="vorname" name="vorname"/>
                 </div>
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Name</label>
+                    <label for="nachname" class="inputfieldName">Name</label>
                     <input class="inputfieldCell" type="text" id="nachname" name="name"/>
                 </div>
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Verein</label>
+                    <label for="verein" class="inputfieldName">Verein</label>
                     <input class="inputfieldCell" type="text" id="verein" name="verein"/>
                 </div>
 
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Coach</label>
+                    <label for="hcoach" class="inputfieldName">Coach</label>
                     <input class="inputfieldCell" type="text" id="hcoach" name="hcoach"/>
                 </div>
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Assistentencoach</label>
+                    <label for="acoach" class="inputfieldName">Assistentencoach</label>
                     <input class="inputfieldCell" type="text" id="acoach" name="acoach"/>
                 </div>
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Trikotnummer</label>
+                    <label for="number" class="inputfieldName">Trikotnummer</label>
                     <input class="inputfieldCell" type="number" id="number" name="number"/>
                 </div>
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Position</label>
+                    <label for="position" class="inputfieldName">Position</label>
                     <select class="inputfieldCell" id="position" name="position">
                         <option>Center</option>
                         <option>Guard</option>
@@ -67,23 +67,21 @@
                     </select>
                 </div>
                 <div class="inputfieldLine">
-                    <label class="inputfieldName">Jahrgang</label>
+                    <label for="jahr" class="inputfieldName">Jahrgang</label>
                     <input class="inputfieldCell" type="number" id="jahr" name="jahr"/>
                 </div>
 
                 <div class="inputfieldLine">
-
+                    <label class="inputfieldName">Aktiv</label>
                     <div class="AktivBlock">
-                        <div id="AktivCellJa"><input type="checkbox" name="Aktiv"/>
-                            <label class="inputfieldName">Ja</label>
+                        <div id="AktivCellJa"><input id="ja" type="checkbox" name="aktiv" value="ja"/>
+                            <label for="ja" class="inputfieldName">Ja</label>
                         </div>
                         <div id="AktivCellNein">
-                            <input type="checkbox" name="Aktiv" checked/>
-                            <label class="inputfieldName">Nein</label>
+                            <input id="nein" type="checkbox" name="aktiv" value="nein" checked/>
+                            <label for="nein" class="inputfieldName">Nein</label>
                         </div>
                     </div>
-                    <div><label class="inputfieldName">Aktiv</label></div>
-
                 </div>
                 <div class="inputfieldLine">
                     <input type="submit" onclick="return validateInput()" id="anlegenButton" name="Anlegen"
