@@ -24,15 +24,12 @@ function getDataFromRequest(favorites) {
     request.onreadystatechange = function requestReadyStateHandler() {
         if (request.readyState == 4 && request.status == 200) {
             pList = JSON.parse(request.responseText);
-            if (!favorites) {
-                document.getElementsByTagName("table")[0].appendChild(loadData(pList));
-            } else {
-                document.getElementsByTagName("table")[0].appendChild(loadData(pList, favorites));
-            }
+            document.getElementsByTagName("table")[0].appendChild(loadData(pList, favorites));
         }
-        request.open("GET", url, true);
-        request.send();
     }
+    request.open("GET", url, true);
+    request.send();
+
 }
 
 function loadTable() {
@@ -94,65 +91,70 @@ function loadTable() {
 
 function loadData(playerList, favorites) {
 
+    var tbody = document.getElementsByTagName("tbody");
+    if(tbody.length != 0) {
+        document.getElementsByTagName("tbody")[0].remove();
+    }
     var body = document.createElement("tbody");
 
-    for (var zeile = 0; zeile < playerList.length; zeile++) {
+    for (var rowcounter = 0; rowcounter < playerList.length; rowcounter++) {
         var row = document.createElement("tr");
-        for (var spalte = 0; spalte < 8; spalte++) {
+        for (var colcounter = 0; colcounter < 8; colcounter++) {
 
             var cell = document.createElement("td");
             cell.setAttribute("class", "tableData");
             var text;
 
-            switch (spalte) {
+            switch (colcounter) {
                 case 0:
-                    text = document.createTextNode(playerList[zeile]["firstname"] + " " + playerList[zeile]["surname"]);
+                    text = document.createTextNode(playerList[rowcounter]["firstname"] + " " + playerList[rowcounter]["surname"]);
                     break;
                 case 1:
-                    text = document.createTextNode(playerList[zeile]["team"]);
+                    text = document.createTextNode(playerList[rowcounter]["team"]);
                     break;
                 case 2:
-                    text = document.createTextNode(playerList[zeile]["headcoach"]);
+                    text = document.createTextNode(playerList[rowcounter]["headcoach"]);
                     break;
                 case 3:
-                    text = document.createTextNode(playerList[zeile]["asisstantcoach"]);
+                    text = document.createTextNode(playerList[rowcounter]["asisstantcoach"]);
                     break;
                 case 4:
-                    text = document.createTextNode(playerList[zeile]["position"]);
+                    text = document.createTextNode(playerList[rowcounter]["position"]);
                     break;
                 case 5:
-                    if (playerList[zeile]["isActive"] == true) {
+                    if (playerList[rowcounter]["isActive"] == true) {
                         text = document.createTextNode("ja");
                     } else {
                         text = document.createTextNode("nein");
                     }
                     break;
                 case 6:
-                    text = document.createTextNode(playerList[zeile]["number"]);
+                    text = document.createTextNode(playerList[rowcounter]["number"]);
                     break;
                 case 7:
-                    text = document.createTextNode(playerList[zeile]["year"]);
+                    text = document.createTextNode(playerList[rowcounter]["year"]);
                     break;
             }
-            //Showing only Meine Favoriten cells
-            if (favorites) {
-                if (playerList[zeile]["isFavourite"]) {
-                    cell.appendChild(text);
-                    row.classList.add("favouriteRow");
-                    row.classList.remove("notFavouriteRow");
-                    row.appendChild(cell);
-                } else {
-                    row.classList.add("notFavouriteRow");
-                    row.classList.add("favouriteRow");
-                }
-                //Showing all cells
+
+            cell.appendChild(text);
+            row.appendChild(cell);
+
+        }
+        //Showing only Meine Favoriten cells
+        if (favorites) {
+            if (playerList[rowcounter]["isFavorite"] == true) {
+                row.classList.add("favouriteRow");
+                row.classList.remove("notFavouriteRow");
+                body.appendChild(row);
             } else {
-                cell.appendChild(text);
-                row.appendChild(cell);
+                row.classList.add("notFavouriteRow");
+                row.classList.add("favouriteRow");
             }
+            //Showing all cells
+        } else {
+            body.appendChild(row);
         }
 
-        body.appendChild(row);
 
     }
 

@@ -66,7 +66,7 @@ function validateInput() {
     }
 
     if (!isValid) {
-        alert('Einige Eingaben sind fehlerhaft. Bitte überprüfen Sie ihre Eingaben');
+        alert('Einige Eingaben sind fehlerhaft. Bitte \xFCberpr\xFCfen Sie ihre Eingaben');
         return false;
     }
 
