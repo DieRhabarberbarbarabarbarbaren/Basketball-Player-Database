@@ -101,7 +101,7 @@ a {
 }
 
 #favoritLine {
-    margin: 20px;
+    margin: 15px;
 }
 
 #anlegenButton {
@@ -111,9 +111,9 @@ a {
 table {
     border: 2px solid black;
     width: 90%;
-
     margin-left: 5%;
     border-collapse: collapse;
+    font-family: sans-serif;
 }
 
 .tableAttribute {
@@ -150,12 +150,4 @@ table {
 .selected {
     background-color: rgb(0, 38, 255);
     color: #FFFFFF;
-}
-
-.favouriteRow{
-
-}
-
-.notFavouriteRow{
-
 }

@@ -26,10 +26,9 @@ function getDataFromRequest(favorites) {
             pList = JSON.parse(request.responseText);
             document.getElementsByTagName("table")[0].appendChild(loadData(pList, favorites));
         }
-    }
+    };
     request.open("GET", url, true);
-    request.send();
-
+    request.send("GET");
 }
 
 function loadTable() {
@@ -142,26 +141,15 @@ function loadData(playerList, favorites) {
         }
         //Showing only Meine Favoriten cells
         if (favorites) {
-            if (playerList[rowcounter]["isFavorite"] == true) {
-                row.classList.add("favouriteRow");
-                row.classList.remove("notFavouriteRow");
+            if (playerList[rowcounter]["isFavorite"]) {
                 body.appendChild(row);
-            } else {
-                row.classList.add("notFavouriteRow");
-                row.classList.add("favouriteRow");
             }
-            //Showing all cells
+        //Showing all cells
         } else {
             body.appendChild(row);
         }
-
-
     }
-
-    //document.getElementsByTagName("tbody")[0].removeChild(document.body.children.
-
     return body;
-
 }
 
 function select(id) {
@@ -177,5 +165,4 @@ function select(id) {
         getDataFromRequest(true);
     }
 
-    //document.getElementsByTagName("table")[0].
 }
