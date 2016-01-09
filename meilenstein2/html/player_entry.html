@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Spieler anlegen</title>
+    <link rel="stylesheet" href="../css/background.css" type="text/css">
+    <link rel="stylesheet" href="../css/format.css" type="text/css">
+    <script type="text/javascript" src="../js/inputValidation.js"></script>
+</head>
+<body>
+
+<div id="leftBorder">
+    <div class="zurueckButton"><a href="home.html">Zurück</a></div>
+</div>
+
+<div id="rightBorder">
+</div>
+
+<div id="center">
+    <div id="heading">
+        <h1 class="version2">Spieler anlegen</h1>
+    </div>
+
+    <div id="form">
+        <form action="http://martinakraus.net/createPlayer.php" method="get" name="SpielerAnlegen">
+            <div id="rightForm">
+                <div id="favoritLine">
+                    <label for="favoritCheckbox" id="favoritLabel" class="inputfieldName">Als Favorit markieren</label>
+
+                    <div><input id="favoritCheckbox" class="inputfieldCell" type="checkbox" name="favorit"/></div>
+                </div>
+            </div>
+            <div id="leftForm">
+                <div class="inputfieldLine">
+                    <label for="vorname" class="inputfieldName">Vorname</label>
+                    <input class="inputfieldCell" type="text" id="vorname" name="vorname"/>
+                </div>
+                <div class="inputfieldLine">
+                    <label for="nachname" class="inputfieldName">Name</label>
+                    <input class="inputfieldCell" type="text" id="nachname" name="name"/>
+                </div>
+                <div class="inputfieldLine">
+                    <label for="verein" class="inputfieldName">Verein</label>
+                    <input class="inputfieldCell" type="text" id="verein" name="verein"/>
+                </div>
+
+                <div class="inputfieldLine">
+                    <label for="hcoach" class="inputfieldName">Coach</label>
+                    <input class="inputfieldCell" type="text" id="hcoach" name="hcoach"/>
+                </div>
+                <div class="inputfieldLine">
+                    <label for="acoach" class="inputfieldName">Assistentencoach</label>
+                    <input class="inputfieldCell" type="text" id="acoach" name="acoach"/>
+                </div>
+                <div class="inputfieldLine">
+                    <label for="number" class="inputfieldName">Trikotnummer</label>
+                    <input class="inputfieldCell" type="number" id="number" name="number"/>
+                </div>
+                <div class="inputfieldLine">
+                    <label for="position" class="inputfieldName">Position</label>
+                    <select class="inputfieldCell" id="position" name="position">
+                        <option>Center</option>
+                        <option>Guard</option>
+                        <option>Power Forward</option>
+                        <option selected>Wing</option>
+                        <option>Small Forward</option>
+                    </select>
+                </div>
+                <div class="inputfieldLine">
+                    <label for="jahr" class="inputfieldName">Jahrgang</label>
+                    <input class="inputfieldCell" type="number" id="jahr" name="jahr"/>
+                </div>
+
+                <div class="inputfieldLine">
+                    <label class="inputfieldName">Aktiv</label>
+                    <div class="AktivBlock">
+                        <div id="AktivCellJa"><input id="ja" type="checkbox" name="aktiv" value="ja"/>
+                            <label for="ja" class="inputfieldName">Ja</label>
+                        </div>
+                        <div id="AktivCellNein">
+                            <input id="nein" type="checkbox" name="aktiv" value="nein" checked/>
+                            <label for="nein" class="inputfieldName">Nein</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputfieldLine">
+                    <input type="submit" onclick="return validateInput()" id="anlegenButton" name="Anlegen"
+                           value="Anlegen"/>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

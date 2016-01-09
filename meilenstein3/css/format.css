@@ -1,0 +1,153 @@
+#heading {
+    padding: 2.5% 2.5%;
+}
+
+#img {
+    text-align: center;
+}
+
+#list {
+    margin: 0 40%;
+}
+
+ul {
+    background-color: rgb(0, 162, 232);
+    font-family: sans-serif;
+    list-style-type: none;
+    list-style-position: inside;
+    text-align: center;
+    padding: 0;
+    border-width: thick;
+    border-style: solid;
+    border-color: rgb(63, 72, 204);
+}
+
+li:hover {
+    background-color: rgb(63, 72, 204);
+}
+
+a {
+    color: black;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.FirstLetter {
+    color: rgb(136, 0, 21);
+}
+
+#form {
+    padding-top: 50px;
+    width: auto;
+}
+
+.inputfieldLine {
+    margin: 10px;
+    margin-left: 20px;
+    width: auto;
+    border-color: black;
+    border-right: 2px;
+}
+
+.inputfieldName {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    height: 100%;
+}
+
+.inputfieldCell {
+    float: right;
+    border-color: black;
+    border-width: thin;
+    border-style: solid;
+}
+
+.AktivBlock {
+    display: table;
+    float: right;
+}
+
+#AktivCellJa {
+    display: inline;
+    float: left;
+}
+
+#AktivCellNein {
+    display: inline;
+    float: right;
+    padding-right: 20px;
+    margin-left: 30px;
+}
+
+#leftform, #rightform {
+    height: auto;
+}
+
+#leftForm {
+    width: 50%;
+    float: left;
+}
+
+#rightForm {
+    float: right;
+    width: 50%;
+}
+
+#favoritCheckbox {
+    float: left;
+}
+
+#favoritLine {
+    margin: 15px;
+}
+
+#anlegenButton {
+    margin-top: 10px;
+}
+
+table {
+    border: 2px solid black;
+    width: 90%;
+    margin-left: 5%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+
+.tableAttribute {
+    width: 10%;
+    font-size: 14px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.tableData{
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-size: 12px;
+    padding:2px;
+}
+
+#tableTabAlleSpieler, #tableTabMeineFavoriten {
+    width: 100%;
+    font-size: 20px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+#tableheader, #tablebody {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+.zurueckButton {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.selected {
+    background-color: rgb(0, 38, 255);
+    color: #FFFFFF;
+}

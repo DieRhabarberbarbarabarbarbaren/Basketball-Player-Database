@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+    margin: 0
+}
+
+#leftBorder, #rightBorder {
+    background-color: rgb(0, 162, 232);
+    width: 20%;
+    height: 100%;
+}
+
+#leftBorder {
+    float: left;
+}
+
+#rightBorder {
+    float: right;
+}
+
+#center {
+    background-color: rgb(153, 217, 234);
+    height: 100%;
+    position: relative;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+.version1 {
+    font-size: 22px;
+}
+
+.version2 {
+    font-size: 24px;
+    color: rgb(75, 47, 37);
+}
