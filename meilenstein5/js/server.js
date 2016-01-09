@@ -14,7 +14,7 @@ http.createServer(function onRequest(request, response) {
     }else {
         var queryObject = parseRequest(request);
 
-        var fileURL = "form.txt";
+        var fileURL = "../form.txt";
 
         saveInFile(fileURL, queryObject);
         response.writeHead(200, {'Content-Type': 'text/plain'});

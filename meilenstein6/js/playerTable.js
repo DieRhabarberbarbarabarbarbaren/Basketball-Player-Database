@@ -21,21 +21,22 @@ function getDataFromRequest(favorites) {
     var request = new XMLHttpRequest();
 
     if (favorites) {
-        var url = "127.0.0.1:8888/Favoriten";
+        var url = "http://127.0.0.1:8888/Favoriten";
 
     } else {
-        var url = "127.0.0.1:8888/AllPlayers";
+        var url = "http://127.0.0.1:8888/AllPlayers";
     }
 
     var pList;
     request.onreadystatechange = function requestReadyStateHandler() {
         if (request.readyState == 4 && request.status == 200) {
-            pList = JSON.parse(request.responseText);
+            //pList = JSON.parse(request.responseText);
+            pList = request.responseText;
             document.getElementsByTagName("table")[0].appendChild(loadData(pList));
         }
     };
     request.open("GET", url, true);
-    request.send("GET");
+    request.send();
 }
 
 function loadTable() {
