@@ -52,7 +52,6 @@ function validateInput() {
     function resetBorder(element) {
         element.style.border = "black solid thin";
     }
-
     //modifies Elements, when Input is invalid
     function invalidInput(input) {
 
@@ -71,6 +70,41 @@ function validateInput() {
     }
 
     //if everything was correct
+
+    var request = new XMLHttpRequest();
+    var url = "http://127.0.0.1:8888/Player";
+
+    //unvalidatable values
+    var aktiv;
+    if(document.getElementById("ja").checked){
+        aktiv = document.getElementById("ja");
+    }else{
+        aktiv = document.getElementById("nein");
+    }
+    var favorit = document.getElementById("favoritCheckbox");
+    var position = document.getElementById("position");
+
+    var values = {
+        "isActive": aktiv.value,
+        "isFavorite": favorit.value,
+        "jahr": geburtsjahr.value,
+        "number": trikotnummer.value,
+        "vorname": vorname.value,
+        "name": name.value,
+        "hcoach": hcoach.value,
+        "acoach": acoach.value,
+        "team": verein.value,
+        "position": position.value
+    };
+
+    request.onreadystatechange = function requestReadyStateHandler() {
+        if (request.readyState == 4 && request.status == 200) {
+            alert("Daten registriert.");
+        }
+    };
+    request.open("PUT", url, true);
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(JSON.stringify(values));
     return true;
 
 }

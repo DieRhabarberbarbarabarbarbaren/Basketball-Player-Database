@@ -5,24 +5,21 @@ var url = {
 var bodyParser = require('body-parser');
 var express = require('express');
 var path = require('path');
-var app = express();
-
 var filesystem = require("fs");
+var app = express();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,POST');
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     next();
 });
 
-var fileURL = "../form.txt";
-
-app.get("/", function(req,res){
+app.get("/", function(req,res,next){
 
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write("Sie haben sich erfolgreich auf den WebServer mit der Url " + "\<" + url.ip + ':' + url.port + "\>" + " verbunden");
@@ -30,18 +27,27 @@ app.get("/", function(req,res){
     res.end();
 });
 
-app.get('/allplayers', function(req,res){
+app.get('/allplayers', function(req,res,next){
 
-    res.location(path);
-    res.json();
+    var players = require("../public/data.json");
+    res.json(players);
 
 });
 
-app.get('/favorites', function(req,res){
+app.put('/player',function(req,res,next){
+    var queryObject = req.body;
+    var fileURL = "../form.txt";
+    saveInFile(fileURL,queryObject);
+
+    res.json({"result": "ok"});
+});
+
+app.get('/favorites', function(req,res,next){
 
     var players = require("../public/data.json");
-    var favorites={};
-    var j =0;
+    var favorites=[];
+    var j = 0;
+
     for(var i=0;i<players.length;i++){
         if(players[i]["isFavorite"] == true){
             favorites[j] = players[i];
@@ -49,20 +55,16 @@ app.get('/favorites', function(req,res){
         }
     }
     res.json(favorites);
-
 });
 
-app.get('*', function(req,res){
-    res.send("Nothing to find here.");
+app.get('*', function(req,res,next){
 
+    res.send("Nothing to find here...");
 });
 
 var server = app.listen(8888, function(){
 
-    var port = server.address().port;
-    var host = server.address().ip;
-
-    console.log("Server listening to "+host+port);
+    console.log("Server listening to "+ url.ip + ":" + url.port);
 });
 
 function parseRequest(request){
@@ -70,7 +72,7 @@ function parseRequest(request){
     var query = request.url.substring(2);
     var attributes = query.split('&');
     var splittedAttributes;
-    var queryObject= new Object();
+    var queryObject= {};
     for(var i=0; i<attributes.length;i++){
         splittedAttributes = attributes[i].split('=');
         queryObject[splittedAttributes[0]] = splittedAttributes[1];

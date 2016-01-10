@@ -29,7 +29,7 @@ function parseRequest(request){
     var query = request.url.substring(2);
     var attributes = query.split('&');
     var splittedAttributes;
-    var queryObject= new Object();
+    var queryObject= {};
     for(var i=0; i<attributes.length;i++){
         splittedAttributes = attributes[i].split('=');
         queryObject[splittedAttributes[0]] = splittedAttributes[1];

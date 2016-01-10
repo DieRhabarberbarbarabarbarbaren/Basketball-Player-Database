@@ -98,46 +98,23 @@ function loadData(playerList, favorites) {
 
     for (var rowcounter = 0; rowcounter < playerList.length; rowcounter++) {
         var row = document.createElement("tr");
+        var text = [];
+        text[0] = document.createTextNode(playerList[rowcounter]["firstname"] + " " + playerList[rowcounter]["surname"]);
+        text[1] = document.createTextNode(playerList[rowcounter]["team"]);
+        text[2] = document.createTextNode(playerList[rowcounter]["headcoach"]);
+        text[3] = document.createTextNode(playerList[rowcounter]["asisstantcoach"]);
+        text[4] = document.createTextNode(playerList[rowcounter]["position"]);
+        text[5] = document.createTextNode(playerList[rowcounter]["isActive"]);
+        text[6] = document.createTextNode(playerList[rowcounter]["number"]);
+        text[7] = document.createTextNode(playerList[rowcounter]["year"]);
+
         for (var colcounter = 0; colcounter < 8; colcounter++) {
 
             var cell = document.createElement("td");
             cell.setAttribute("class", "tableData");
-            var text;
 
-            switch (colcounter) {
-                case 0:
-                    text = document.createTextNode(playerList[rowcounter]["firstname"] + " " + playerList[rowcounter]["surname"]);
-                    break;
-                case 1:
-                    text = document.createTextNode(playerList[rowcounter]["team"]);
-                    break;
-                case 2:
-                    text = document.createTextNode(playerList[rowcounter]["headcoach"]);
-                    break;
-                case 3:
-                    text = document.createTextNode(playerList[rowcounter]["asisstantcoach"]);
-                    break;
-                case 4:
-                    text = document.createTextNode(playerList[rowcounter]["position"]);
-                    break;
-                case 5:
-                    if (playerList[rowcounter]["isActive"] == true) {
-                        text = document.createTextNode("ja");
-                    } else {
-                        text = document.createTextNode("nein");
-                    }
-                    break;
-                case 6:
-                    text = document.createTextNode(playerList[rowcounter]["number"]);
-                    break;
-                case 7:
-                    text = document.createTextNode(playerList[rowcounter]["year"]);
-                    break;
-            }
-
-            cell.appendChild(text);
+            cell.appendChild(text[colcounter]);
             row.appendChild(cell);
-
         }
         //Showing only Meine Favoriten cells
         if (favorites) {

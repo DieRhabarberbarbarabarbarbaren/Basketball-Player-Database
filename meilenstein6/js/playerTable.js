@@ -21,7 +21,7 @@ function getDataFromRequest(favorites) {
     var request = new XMLHttpRequest();
 
     if (favorites) {
-        var url = "http://127.0.0.1:8888/Favoriten";
+        var url = "http://127.0.0.1:8888/Favorites";
 
     } else {
         var url = "http://127.0.0.1:8888/AllPlayers";
@@ -30,8 +30,8 @@ function getDataFromRequest(favorites) {
     var pList;
     request.onreadystatechange = function requestReadyStateHandler() {
         if (request.readyState == 4 && request.status == 200) {
-            //pList = JSON.parse(request.responseText);
-            pList = request.responseText;
+            pList = JSON.parse(request.responseText);
+
             document.getElementsByTagName("table")[0].appendChild(loadData(pList));
         }
     };
@@ -108,24 +108,23 @@ function loadData(playerList) {
     for (var rowcounter = 0; rowcounter < playerList.length; rowcounter++) {
         var row = document.createElement("tr");
 
+        var text = [];
+        text[0] = document.createTextNode(playerList[rowcounter]["firstname"] + " " + playerList[rowcounter]["surname"]);
+        text[1] = document.createTextNode(playerList[rowcounter]["team"]);
+        text[2] = document.createTextNode(playerList[rowcounter]["headcoach"]);
+        text[3] = document.createTextNode(playerList[rowcounter]["asisstantcoach"]);
+        text[4] = document.createTextNode(playerList[rowcounter]["position"]);
+        text[5] = document.createTextNode(playerList[rowcounter]["isActive"]);
+        text[6] = document.createTextNode(playerList[rowcounter]["number"]);
+        text[7] = document.createTextNode(playerList[rowcounter]["year"]);
+
         for (var colcounter = 0; colcounter < 8; colcounter++) {
 
             var cell = document.createElement("td");
             cell.setAttribute("class", "tableData");
 
-            var text = [];
-            text[0] = document.createTextNode(playerList[rowcounter]["firstname"] + " " + playerList[rowcounter]["surname"]);
-            text[1] = document.createTextNode(playerList[rowcounter]["team"]);
-            text[2] = document.createTextNode(playerList[rowcounter]["headcoach"]);
-            text[3] = document.createTextNode(playerList[rowcounter]["asisstantcoach"]);
-            text[4] = document.createTextNode(playerList[rowcounter]["position"]);
-            text[5] = document.createTextNode(playerList[rowcounter]["isActive"]);
-            text[6] = document.createTextNode(playerList[rowcounter]["number"]);
-            text[7] = document.createTextNode(playerList[rowcounter]["year"]);
-
             cell.appendChild(text[colcounter]);
             row.appendChild(cell);
-
         }
 
         //Showing all cells

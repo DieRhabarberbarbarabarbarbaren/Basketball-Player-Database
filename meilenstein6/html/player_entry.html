@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/background.css" type="text/css">
     <link rel="stylesheet" href="../css/format.css" type="text/css">
     <script type="text/javascript" src="../js/inputValidation.js"></script>
+    <script type="text/javascript" src="../js/sendInputFieldValues.js"></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
     </div>
 
     <div id="form">
-        <form action="http://127.0.0.1:8888" method="get" name="SpielerAnlegen">
+        <form action="http://127.0.0.1:8888" name="SpielerAnlegen">
             <div id="rightForm">
                 <div id="favoritLine">
                     <label for="favoritCheckbox" id="favoritLabel" class="inputfieldName">Als Favorit markieren</label>
@@ -84,7 +85,7 @@
                     </div>
                 </div>
                 <div class="inputfieldLine">
-                    <input type="submit" onclick="return validateInput()" id="anlegenButton" name="Anlegen"
+                    <input type="button" onclick="return validateInput()" id="anlegenButton" name="Anlegen"
                            value="Anlegen"/>
                 </div>
 
